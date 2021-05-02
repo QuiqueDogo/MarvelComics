@@ -1,0 +1,14 @@
+.header{
+    width: 100%;
+    background-color: #202020;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;
+}
+
+.logoMarvel{
+    min-width: 120px;
+    height:52px;
+    /* object-fit: contain; */
+  }
