@@ -10,22 +10,23 @@ class Card extends React.Component {
     state = {
         path:this.props.infoComics.thumbnail.path,
         extension: this.props.infoComics.thumbnail.extension,
-        title: this.props.infoComics.title
+        title: this.props.infoComics.title,
+        description: this.props.infoComics.description
     }
 
     render() {
-        let { path, extension, title } = this.state
+        let { path, extension, title, description } = this.state
         return (
             <div className="card">
                 <div className="fade">
                     <img src={`${path}/detail.${extension}`} alt="imgofMarvel" className="image" />
 
                 </div>
+                <h4 className="text">{title}</h4>
                 <div className="contentInfo">
-                    <h4 className="text">{title}</h4>
-                    <p className="text info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat provident sit iure ut accusamus.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat provident sit iure ut accusamus</p>
-                    <div className="buttonMore">Leer Más</div>
+                    <p className="text info">{description}</p>
                 </div>
+                <div className="buttonMore">Leer Más</div>
         </div>
         )
     }

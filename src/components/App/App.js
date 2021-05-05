@@ -35,12 +35,13 @@ class App extends React.Component {
   return (
     <div className="App">
       <Header title="Marvel Comics App"/>
+      {/* routes */}
       <div className="content">
         {loading ? <p>Cargando...</p> : 
           comics.map((data, index) => {
             return (
               <div key={`${index}Comics`}>
-                <Card key={data.id} infoComics={data} />
+                <Card key={`${data.id}Comic`} infoComics={data} />
               </div>
             );
           })}
