@@ -1,8 +1,13 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Header from '../header/header';
 import Card from '../card/card';
 import axios from 'axios';
+import Home from '../navegation/Home';
+import Events from '../navegation/Events';
+import Characters from '../navegation/Characters';
+import PageNotFound from '../navegation/PageNotFound';
 
 class App extends React.Component {
 
@@ -35,16 +40,32 @@ class App extends React.Component {
   return (
     <div className="App">
       <Header title="Marvel Comics App"/>
-      {/* routes */}
+      
       <div className="content">
-        {loading ? <p>Cargando...</p> : 
+      <Router>
+        <ul> 
+          <li>
+            <Link to='/'>Inicio</Link></li>
+          <li>
+            <Link to='/comics'>Comics</Link></li>
+          <li>
+            <Link to='/characters'>Characters</Link></li>
+        </ul>
+        <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/events" component={Events}/>
+            <Route exact path="/characters" component={Characters}/>
+            <Route component={PageNotFound}/>
+        </Switch>
+      </Router>
+        {/* {loading ? <p>Cargando...</p> : 
           comics.map((data, index) => {
             return (
               <div key={`${index}Comics`}>
                 <Card key={`${data.id}Comic`} infoComics={data} />
               </div>
             );
-          })}
+          })} */}
       </div>
     </div>
   );}
