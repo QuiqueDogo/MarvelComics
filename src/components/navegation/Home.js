@@ -1,14 +1,52 @@
 import React from 'react';
+import Card from '../card/card';
+import axios from 'axios';
+import styles from '../style/home.module.css';
 
 
-class HOme extends React.Component{
-    render(){
+class Home extends React.Component{
+    state = {
+        comics: null,
+        loading: true
+      }
+    
+      activePage() {
+        console.log('this is:', this)  
+      }
+    
+      componentDidMount() {
+        axios.get('https://gateway.marvel.com:443/v1/public/comics?ts=1&apikey=0587dfa027b8eb01ed792f6dd076de86&hash=78e55c6b747a0a183b60de3beea67b4a')
+        .then(res =>{
+          console.log(res.data)
+          this.setState({
+            comics: res.data.data.results,
+            loading: false
+          })
+    
+        })
+        .catch(error => {
+          this.setState({
+            error,
+            loading: true
+           })
+        })
+      } 
+      render(){
+        const { comics, loading } = this.state;
+      // console.log(comics)
     return (
-        <div className="header">
-            <p>Hola inicio</p>
+        <div >
+            {loading ? <p>Cargando...</p> : 
+          comics.map((data, index) => {
+            return (
+              <div key={`${index}Comics`}>
+                <Card key={`${data.id}Comic`} infoComics={data} />
+              </div>
+            );
+          })}
         </div>
     );
 }
 }
 
-export default HOme;
+export default Home;

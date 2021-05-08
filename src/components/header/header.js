@@ -1,12 +1,12 @@
 import React from 'react';
-import './header.css';
+import style from './header.module.css';
 import logo from './marvelLogo.svg';
 
 class Header extends React.Component{
     render(){
     return (
-        <div className="header">
-            <img src={logo} alt="LogoMarvel" className="logoMarvel"/>
+        <div className={style.header}>
+            <img src={logo} alt="LogoMarvel" className={style.logoMarvel}/>
         </div>
     );
 }
