@@ -1,13 +1,13 @@
 .App{
   width: 100%;
   height: 100vh;
+  background-color:#202020;
   
 }
 
 .content{
   width: 100%;
   height: 100%;
-  background-color:#202020;
 }
 
 .list li{

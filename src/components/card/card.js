@@ -1,5 +1,5 @@
 import React from 'react';
-import './card.css'
+import styleCard from './card.module.css'
 
 class Card extends React.Component {
     constructor(props) {
@@ -17,16 +17,17 @@ class Card extends React.Component {
     render() {
         let { path, extension, title, description } = this.state
         return (
-            <div className="card">
-                <div className="fade">
-                    <img src={`${path}/detail.${extension}`} alt="imgofMarvel" className="image" />
-
+            <div className={styleCard.card}>
+                <div className={styleCard.fade}>
+                    <img src={`${path}/landscape_xlarge.${extension}`} alt="imgofMarvel" className={styleCard.image} />
                 </div>
-                <h4 className="text">{title}</h4>
-                <div className="contentInfo">
-                    <p className="text info">{description}</p>
+                <div className={styleCard.subcontent}>
+                    <h4 className={styleCard.text}>{title}</h4>
+                    {/* <div className={styleCard.contentInfo}>
+                        <p className={`${styleCard.text} ${styleCard.info}`}>{description}</p>
+                    </div>
+                    <div className={styleCard.buttonMore}>Leer Más</div> */}
                 </div>
-                <div className="buttonMore">Leer Más</div>
         </div>
         )
     }

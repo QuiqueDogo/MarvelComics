@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../card/card';
 import axios from 'axios';
-import styles from '../style/home.module.css';
+
 
 
 class Home extends React.Component{
