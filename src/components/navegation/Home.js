@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../card/card';
 import axios from 'axios';
+import sytles from '../style/home.module.css'
 
 
 
@@ -15,7 +16,8 @@ class Home extends React.Component{
       }
     
       componentDidMount() {
-        axios.get('https://gateway.marvel.com:443/v1/public/comics?ts=1&apikey=0587dfa027b8eb01ed792f6dd076de86&hash=78e55c6b747a0a183b60de3beea67b4a')
+        let number = Math.floor(Math.random() * 50)
+        axios.get(`https://gateway.marvel.com:443/v1/public/comics?offset=${number}&hasDigitalIssue=true&ts=1&apikey=0587dfa027b8eb01ed792f6dd076de86&hash=78e55c6b747a0a183b60de3beea67b4a`)
         .then(res =>{
           console.log(res.data)
           this.setState({
@@ -35,11 +37,11 @@ class Home extends React.Component{
         const { comics, loading } = this.state;
       // console.log(comics)
     return (
-        <div >
+        <div className={sytles.allcomics}>
             {loading ? <p>Cargando...</p> : 
           comics.map((data, index) => {
             return (
-              <div key={`${index}Comics`}>
+              <div className={sytles.comic} key={`${index}Comics`}>
                 <Card key={`${data.id}Comic`} infoComics={data} />
               </div>
             );
