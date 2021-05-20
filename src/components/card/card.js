@@ -22,6 +22,10 @@ class Card extends React.Component {
                     <img src={`${path}/detail.${extension}`} alt="imgofMarvel" className={styleCard.image} />
                     <div className={styleCard.subcontent}>
                         <h4 className={styleCard.text}>{title}</h4>
+                        <div className={styleCard.icons}>
+                            <i className="bi bi-heart-fill"></i>
+                            <i className="bi bi-three-dots-vertical"></i>
+                        </div>
                     </div>
                 </div>
             </div>
