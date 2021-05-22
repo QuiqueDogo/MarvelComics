@@ -5,7 +5,7 @@ class PageNotFound extends React.Component{
     render(){
     return (
         <div className="header">
-            <p>Hola</p>
+            <p>Hola, no existo</p>
         </div>
     );
 }

@@ -11,11 +11,16 @@ class Card extends React.Component {
         path:this.props.infoComics.thumbnail.path,
         extension: this.props.infoComics.thumbnail.extension,
         title: this.props.infoComics.title,
-        description: this.props.infoComics.description
     }
 
+    ChangeHeart(e){
+        console.log(e, e.target.className)
+        e.target.className ='bi bi-heart-fill jumpi'
+    }
+    
+
     render() {
-        let { path, extension, title, description } = this.state
+        let { path, extension, title } = this.state
         return (
             <div className={styleCard.card}>
                 <div className={styleCard.wrappy}>
@@ -23,8 +28,8 @@ class Card extends React.Component {
                     <div className={styleCard.subcontent}>
                         <h4 className={styleCard.text}>{title}</h4>
                         <div className={styleCard.icons}>
-                            <i className="bi bi-heart-fill"></i>
-                            <i className="bi bi-three-dots-vertical"></i>
+                            <i onClick={this.ChangeHeart} className=" bi bi-heart">Guardar</i>
+                            <i onClick={() => this.props.onModalCheck()} className="bi bi-three-dots-vertical">Ver Más</i>
                         </div>
                     </div>
                 </div>

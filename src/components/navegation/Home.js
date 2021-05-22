@@ -6,10 +6,16 @@ import sytles from '../style/home.module.css'
 
 
 class Home extends React.Component{
-    state = {
+  constructor(props){
+    super(props);
+    this.modalCheck = this.modalCheck.bind(this);
+    this.state = {
         comics: null,
-        loading: true
+        loading: true, 
+        modal: false
       }
+  }
+  
     
       activePage() {
         console.log('this is:', this)  
@@ -33,6 +39,14 @@ class Home extends React.Component{
            })
         })
       } 
+
+
+      modalCheck(){
+        this.setState({modal:!this.state.modal})
+        console.log('Se hizo click', this.state)
+      }
+
+
       render(){
         const { comics, loading } = this.state;
       // console.log(comics)
@@ -42,7 +56,7 @@ class Home extends React.Component{
           comics.map((data, index) => {
             return (
               <div className={sytles.comic} key={`${index}Comics`}>
-                <Card key={`${data.id}Comic`} infoComics={data} />
+                <Card onModalCheck={this.modalCheck} key={`${data.id}Comic`} infoComics={data} />
               </div>
             );
           })}
